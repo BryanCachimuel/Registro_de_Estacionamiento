@@ -3,8 +3,7 @@ const mysql = require('mysql');
 const conexion = mysql.createConnection({
     host:'localhost',
     user:'root',
-    password:'admin1994',
-    port: '3307',
+    password:'',
     database:'registro_estacionamiento'
 });
 
@@ -14,4 +13,6 @@ conexion.connect((error) => {
         return
     }
     console.log('Conexión hacia la Base de Datos exitosa');
-})
+});
+
+module.exports = conexion;
