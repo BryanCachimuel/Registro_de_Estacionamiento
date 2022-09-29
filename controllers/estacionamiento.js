@@ -1,6 +1,12 @@
 const conexion = require('../database/db')
 
-exports.saludo = (req, res) => {
-   res.render('index')
+exports.listado = (req, res) => {
+   conexion.query('SELECT * FROM registro',(error,results) => {
+      if(error){
+          throw error;
+      }else{
+         res.render('index', {results:results});
+      }
+  })
 }
 

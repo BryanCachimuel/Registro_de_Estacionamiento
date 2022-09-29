@@ -1,0 +1,18 @@
+CREATE DATABASE registro_estacionamiento;
+use registro_estacionamiento
+
+create table registro(
+	id int not null auto_increment,
+    cedula varchar(10) not null,
+    nombrepropietario varchar(100) not null,
+    marcacarro varchar(50) not null,
+	placacarro varchar(8) not null,
+    horaingreso int not null,
+    horasalida int not null,
+    totalpagar decimal(5,2) not null,
+    primary key(id)
+);
+
+
+
+

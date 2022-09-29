@@ -3,7 +3,7 @@ const router = express.Router();
 
 const ctrl = require('../controllers/estacionamiento')
 
-router.get('/',ctrl.saludo);
+router.get('/',ctrl.listado);
 
 
 module.exports = router;
