@@ -6,6 +6,6 @@ const ctrl = require('../controllers/estacionamiento')
 router.get('/',ctrl.listado);
 router.get('/crear', ctrl.crear);
 router.post('/crear', ctrl.guardar);
-router.get('/editar/:id')
+router.get('/editar/:id', ctrl.editar);
 
 module.exports = router;
