@@ -23,13 +23,21 @@ exports.guardar = (req, res) => {
    const horasalida = req.body.horasalida;
    const totalpagar = req.body.totalpagar;
 
-   conexion.query('INSERT INTO registro SET ?',{cedula:cedula, nombrepropietario:nombrepropietario, marcacarro:marcacarro, placacarro:placacarro, horaingreso:horaingreso, horasalida:horasalida, totalpagar:totalpagar}, (error, results)=>{
-      if(error){
-         console.log(error);
-      }else{
-         res.redirect('/');
-      }
-   })
+   conexion.query('INSERT INTO registro SET ?',{
+                  cedula:cedula, 
+                  nombrepropietario:nombrepropietario, 
+                  marcacarro:marcacarro, 
+                  placacarro:placacarro, 
+                  horaingreso:horaingreso, 
+                  horasalida:horasalida, 
+                  totalpagar:totalpagar}, 
+                  (error, results)=>{
+                  if(error){
+                     console.log(error);
+                  }else{
+                     res.redirect('/');
+                  }
+               })
 }
 
 exports.editar = (req, res) => {
