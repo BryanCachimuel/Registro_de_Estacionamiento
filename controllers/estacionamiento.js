@@ -10,3 +10,6 @@ exports.listado = (req, res) => {
   })
 }
 
+exports.crear = (req, res) => {
+   res.render('crear');
+}
