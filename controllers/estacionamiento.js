@@ -42,3 +42,30 @@ exports.editar = (req, res) => {
       }
    })
 }
+
+exports.actualizar = (req, res) => {
+   const id = req.body.id;
+   const cedula = req.body.cedula;
+   const nombrepropietario = req.body.nombrepropietario;
+   const marcacarro = req.body.marcacarro;
+   const placacarro = req.body.placacarro;
+   const horaingreso = req.body.horaingreso;
+   const horasalida = req.body.horasalida;
+   const totalpagar = req.body.totalpagar;
+
+   conexion.query('UPDATE registro SET ? WHERE id = ?', [{
+                  cedula:cedula, 
+                  nombrepropietario:nombrepropietario, 
+                  marcacarro:marcacarro,
+                  placacarro:placacarro,
+                  horaingreso:horaingreso,
+                  horasalida:horasalida,
+                  totalpagar:totalpagar
+               }, id], (error, results) => {
+                  if(error){
+                     throw error;
+                  }else{
+                    res.redirect('/');
+                  }
+               })
+}
