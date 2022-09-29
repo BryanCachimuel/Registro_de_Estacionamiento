@@ -13,3 +13,21 @@ exports.listado = (req, res) => {
 exports.crear = (req, res) => {
    res.render('crear');
 }
+
+exports.guardar = (req, res) => {
+   const cedula = req.body.cedula;
+   const nombrepropietario = req.body.nombrepropietario;
+   const marcacarro = req.body.marcacarro;
+   const placacarro = req.body.placacarro;
+   const horaingreso = req.body.horaingreso;
+   const horasalida = req.body.horasalida;
+   const totalpagar = req.body.totalpagar;
+
+   conexion.query('INSERT INTO registro SET ?',{cedula:cedula, nombrepropietario:nombrepropietario, marcacarro:marcacarro, placacarro:placacarro, horaingreso:horaingreso, horasalida:horasalida, totalpagar:totalpagar}, (error, results)=>{
+      if(error){
+         console.log(error);
+      }else{
+         res.redirect('/');
+      }
+   })
+}

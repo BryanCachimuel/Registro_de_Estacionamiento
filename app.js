@@ -1,10 +1,14 @@
+const { json } = require('express');
 const express = require('express');
 const app = express();
 
 // configuración del motor de vistas
-app.set('view engine','ejs')
+app.set('view engine','ejs');
 
-app.use('/', require('./routes/router'))
+app.use(express.urlencoded({extended:false}));
+app.use(express(json));
+
+app.use('/', require('./routes/router'));
 
 
 const puerto = 3000;
