@@ -69,3 +69,14 @@ exports.actualizar = (req, res) => {
                   }
                })
 }
+
+exports.eliminar = (req, res) => {
+   const id = req.params.id;
+   conexion.query('DELETE FROM registro WHERE id = ?',[id], (error, results) => {
+      if(error){
+         throw error;
+      }else{
+         res.redirect('/');
+      }
+   })
+}

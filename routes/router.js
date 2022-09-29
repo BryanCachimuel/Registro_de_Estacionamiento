@@ -8,5 +8,6 @@ router.get('/crear', ctrl.crear);
 router.post('/crear', ctrl.guardar);
 router.get('/editar/:id', ctrl.editar);
 router.post('/actualizar', ctrl.actualizar);
+router.get('/eliminar/:id', ctrl.eliminar);
 
 module.exports = router;
