@@ -14,5 +14,6 @@ router.get('/eliminar/:id', ctrl.eliminar);
 router.get('/login', auth.login);
 router.get('/registro', auth.registros);
 router.post('/registro',auth.registro);
+router.post('/login', auth.iniciarSesion);
 
 module.exports = router;

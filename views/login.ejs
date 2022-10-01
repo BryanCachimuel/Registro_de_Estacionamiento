@@ -52,6 +52,19 @@
         crossorigin="anonymous"></script>
     <!-- Proceso con sweetalert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.35/dist/sweetalert2.all.min.js"></script>
+    <% if(alert) { %>
+        <script>
+            Swal.fire({
+                title: '<%= alertTitle %>',
+                text:'<%= alertMessage %>',
+                icon:'<%= alertIcon %>',
+                showConfirmButton: <%= showConfirmButton %>,
+                timer: <%= timer %>  
+            }).then(()=>{
+                window.location = '/<%= ruta %>'
+            })
+        </script>
+    <% } %>
 </body>
 
 </html>

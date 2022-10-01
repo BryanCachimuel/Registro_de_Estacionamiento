@@ -25,7 +25,44 @@ exports.login = (req, res) => {
                        })
     } catch (error) {
         console.log(error)
+    }  
+}
+
+exports.iniciarSesion = async(req, res) => {
+    try {
+        const usuario = req.body.usuario;
+        const password = req.body.password; 
+        
+        if(!usuario || !password){
+            res.render('login', {
+                alert:true,
+                alertTitle: "Advertencia",
+                alertMessage: "Ingrese un usuario y password",
+                alertIcon:'info',
+                showConfirmButton: true,
+                timer: false,
+                ruta: 'login'
+            })
+        }else{
+            conexion.query('SELECT * FROM usuarios WHERE usuario = ?',[usuario], async(error, results) => {
+                if(results.length == 0 || !(await bcryptjs.compare(password, results[0].password))){
+                    res.render('login', {
+                        alert:true,
+                        alertTitle: "Advertencia",
+                        alertMessage: "Ingrese un usuario y password",
+                        alertIcon:'info',
+                        showConfirmButton: true,
+                        timer: false,
+                        ruta: 'login'
+                    })
+                }else{
+                    const id = results[0].id
+                    const token = jwt.sign({id:id}, )
+                }
+            })
+        }
+    } catch (error) {
+        
     }
-    
- }
+}
  
