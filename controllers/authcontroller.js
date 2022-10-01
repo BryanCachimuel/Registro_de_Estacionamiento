@@ -4,7 +4,7 @@ const conexion = require('../database/db');
 const { promisify } = require('util');
 
 exports.login = (req, res) => {
-    res.render('login');
+    res.render('login',{alert:false});
  }
  
  exports.registros = (req, res) => {
@@ -47,13 +47,13 @@ exports.iniciarSesion = async(req, res) => {
             conexion.query('SELECT * FROM usuarios WHERE usuario = ?',[usuario], async(error, results) => {
                 if(results.length == 0 || !(await bcryptjs.compare(password, results[0].password))){
                     res.render('login', {
-                        alert:true,
-                        alertTitle: "Advertencia",
-                        alertMessage: "Ingrese un usuario y password",
-                        alertIcon:'info',
+                        alert: true,
+                        alertTitle: "Error",
+                        alertMessage: "Usuario y/o Password incorrectas",
+                        alertIcon:'error',
                         showConfirmButton: true,
                         timer: false,
-                        ruta: 'login'
+                        ruta: 'login'    
                     })
                 }else{
                     const id = results[0].id
