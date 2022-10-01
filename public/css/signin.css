@@ -41,6 +41,7 @@ body {
 .enlace{
   font-size: 15px;
   color: #000000;
+  text-decoration: none;
 }
 
 .enlace:hover{
