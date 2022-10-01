@@ -57,12 +57,32 @@ exports.iniciarSesion = async(req, res) => {
                     })
                 }else{
                     const id = results[0].id
-                    const token = jwt.sign({id:id}, )
+                    const token = jwt.sign({id:id}, process.env.JWT_SECRETO, {
+                        expiresIn: process.env.JWT_TIEMPO_EXPIRA
+                    })
+                    // generar el token sin fecha de expiración
+                    //const token = jwt.sign({id: id}, process.env.JWT_SECRETO)
+                    console.log("TOKEN: "+token+" para el USUARIO : "+usuario);
+
+                    const cookieOpciones = {
+                        expires: new Date(Date.now()+process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000),
+                        httpOnly: true
+                    }
+                    res.cookie('jwt', token, cookieOpciones);
+                    res.render('login', {
+                        alert: true,
+                        alertTitle: "Conexión exitosa",
+                        alertMessage: "¡LOGIN CORRECTO!",
+                        alertIcon:'success',
+                        showConfirmButton: false,
+                        timer: 800,
+                        ruta: ''
+                    })
                 }
             })
         }
     } catch (error) {
-        
+        console.log(error);
     }
 }
  
