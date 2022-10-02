@@ -85,4 +85,23 @@ exports.iniciarSesion = async(req, res) => {
         console.log(error);
     }
 }
+
+exports.autenticado = async(req, res, next) => {
+    if(req.cookiesOptions.jwt){
+        try {
+            const decodificada = await promisify(jwt.verify)(req.cookiesOptions.jwt, process.env.JWT_SECRETO)
+            conexion.query('SELECT * FROM usuarios WHERE id = ?', [decodificada.id],(error, results) => {
+                if(!results){return next()}
+                req.usuario = results[0]
+                return next();
+            })
+        } catch (error) {
+            console.log(error);
+            return next();
+        }
+    }else{
+        res.redirect('/login');
+        next()
+    }
+}
  
