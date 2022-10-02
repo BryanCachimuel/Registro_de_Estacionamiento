@@ -21,10 +21,16 @@ app.use(express.json());
 dotenv.config({path:'./env/.env'});
 
 // para poder trabajar con las cookies
-app.use(cookieParser());
+app.use(cookieParser);
 
 app.use('/', require('./routes/router'));
 
+// para eliminar el cache y que no se pueda volver con el boton de back luego de que se cierre sesión
+app.use(function(req, res, next){
+    if(!req.usuario)
+        res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate')
+    next();    
+});
 
 const puerto = 3000;
 app.listen(puerto, () =>{
