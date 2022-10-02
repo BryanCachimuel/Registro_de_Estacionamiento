@@ -1,5 +1,9 @@
 const conexion = require('../database/db')
 
+exports.inicio = (req, res) => {
+   res.render('inicio')
+}
+
 exports.listado = (req, res) => {
    conexion.query('SELECT * FROM registro',(error,results) => {
       if(error){
@@ -9,6 +13,7 @@ exports.listado = (req, res) => {
       }
   })
 }
+
 
 exports.crear = (req, res) => {
    res.render('crear');

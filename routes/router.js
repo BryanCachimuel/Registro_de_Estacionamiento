@@ -4,6 +4,8 @@ const router = express.Router();
 const ctrl = require('../controllers/estacionamiento');
 const auth = require('../controllers/authcontroller');
 
+router.get('/inicio', ctrl.inicio);
+
 router.get('/',auth.autenticado, ctrl.listado);
 router.get('/crear',auth.autenticado, ctrl.crear);
 router.post('/crear',auth.autenticado, ctrl.guardar);
