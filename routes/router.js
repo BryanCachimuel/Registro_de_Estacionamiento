@@ -4,12 +4,12 @@ const router = express.Router();
 const ctrl = require('../controllers/estacionamiento');
 const auth = require('../controllers/authcontroller');
 
-router.get('/',auth.autenticado,ctrl.listado);
+router.get('/',auth.autenticado, ctrl.listado);
 router.get('/crear',auth.autenticado, ctrl.crear);
-router.post('/crear', ctrl.guardar);
-router.get('/editar/:id', ctrl.editar);
-router.post('/actualizar', ctrl.actualizar);
-router.get('/eliminar/:id', ctrl.eliminar);
+router.post('/crear',auth.autenticado, ctrl.guardar);
+router.get('/editar/:id',auth.autenticado, ctrl.editar);
+router.post('/actualizar',auth.autenticado, ctrl.actualizar);
+router.get('/eliminar/:id',auth.autenticado, ctrl.eliminar);
 
 router.get('/login', auth.login);
 router.get('/registro', auth.registros);

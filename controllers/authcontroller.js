@@ -101,7 +101,6 @@ exports.autenticado = async(req, res, next) => {
         }
     }else{
         res.redirect('/login');
-        next()
     }
 }
 
