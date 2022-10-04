@@ -127,7 +127,7 @@ exports.listarUsuarios = (req, res) => {
         if(error){
             throw error;
         }else{
-            res.redirect('/');
+            res.redirect('/listausuarios');
         }
     })
  }
