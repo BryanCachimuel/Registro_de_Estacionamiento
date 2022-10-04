@@ -41,37 +41,28 @@
         </div>
       </nav>
 
-      <div class="container">
-        <a href="/crear" class="btn btn-outline-primary mt-4 mb-5"><i class='bx bx-plus-circle'></i> Nuevo Registro</a>
+      <div class="container mt-5">
 
         <table id="registros" class="table table-bordered table-striped text-center mt-4">
           <thead>
             <tr class="bg-primary text-white">
-              <th scope="col">Cédula</th>
-              <th scope="col">Propietario</th>
-              <th scope="col">Marca del Carro</th>
-              <th scope="col">Placa del Carro</th>
-              <th scope="col">Hora de Ingreso</th>
-              <th scope="col">Hora de Salida</th>
-              <th scope="col">Total a Pagar</th>
+              <th scope="col">Id</th>
+              <th scope="col">Usuario</th>
+              <th scope="col">Nombre</th>
               <th scope="col">Acciones</th>
             </tr>
           </thead>
 
           <tbody>
-            <% results.forEach((registro) => { %>
+            <% results.forEach((usuarios) => { %>
             <tr>
-              <td><%= registro.cedula%></td>
-              <td><%= registro.nombrepropietario %></td>
-              <td><%= registro.marcacarro %></td>
-              <td><%= registro.placacarro %></td>
-              <td><%= registro.horaingreso %></td>
-              <td><%= registro.horasalida %></td>
-              <td><%= registro.totalpagar %></td>
+              <td><%= usuarios.id%></td>
+              <td><%= usuarios.usuario %></td>
+              <td><%= usuarios.nombre %></td>
               <td>
-                <a href="/editar/<%= registro.id %>" class="btn btn-outline-info"><i class='bx bxs-edit'></i></a>
-                <!--<a href="/eliminar/<%= registro.id %>" class="btn btn-outline-danger"><i class='bx bxs-trash'></i></a>-->
-                <a onclick="confirmar(<%= registro.id %>)" class="btn btn-outline-danger"><i class='bx bxs-trash'></i></a>
+                <a href="/editar/<%= usuarios.id %>" class="btn btn-outline-info"><i class='bx bxs-edit'></i></a>
+                <!--<a href="/eliminar/<%= usuarios.id %>" class="btn btn-outline-danger"><i class='bx bxs-trash'></i></a>-->
+                <a onclick="confirmar(<%= usuarios.id %>)" class="btn btn-outline-danger"><i class='bx bxs-trash'></i></a>
               </td>
             </tr>
             <% }) %>
