@@ -8,12 +8,10 @@ body {
     font-family: 'open sans';
     font-size: 16px;
 }
-/* No olvides suscribirte a AlexCG Design */
-/* Header */
 
 header {
     width: 100%;
-    height: 650px;
+    height: 740px;
     background-image: url(../img/Skewed.png);
     background-attachment: fixed;
     background-position: center;
@@ -25,7 +23,7 @@ header {
 }
 
 header .textos {
-    margin-top: 152px;
+    margin-top: 270px;
 }
 
 header .titulo {
@@ -41,7 +39,7 @@ header .subtitulo {
 header .boton {
     display: inline-block;
     padding: 6px;
-    width: 128px;
+    width: 150px;
     border: 1px solid #fff;
     color: #fff;
     font-size: 19px;
@@ -50,25 +48,6 @@ header .boton {
     border-radius: 16px;
 }
 
-.sesgoabajo {
-    z-index: 10;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    border-width: 0 0 35vh 100vw;
-    border-style: solid;
-    border-color: transparent transparent #fff transparent;
-}
-
-.sesgoarriba {
-    z-index: 10;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-width: 35vh 100vw 0 0;
-    border-style: solid;
-    border-color: #fff transparent transparent transparent;
-}
 
 .contenedor {
     width: 90%;
@@ -116,27 +95,6 @@ header .boton {
     margin-top: 24px;
 }
 
-.galeria {
-    width: 100%;
-    height: 500px;
-    overflow: hidden;
-    display: flex;
-    position: relative;
-    flex-wrap: wrap;
-}
-
-.imagenes {
-    width: 20%;
-    height: 500px;
-    overflow: hidden;
-    position: relative;
-}
-
-.imagenes img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
 
 .encima {
     position: absolute;
@@ -188,26 +146,6 @@ header .boton {
     border-radius: 100%;
 }
 
-.fondo {
-    height: 900px;
-    position: relative;
-    background-image: url(../img/fondo.png);
-    overflow: hidden;
-    background-attachment: fixed;
-    background-position: center;
-    padding-top: 130px;
-}
-
-.sesgoabajo-unico {
-    z-index: 10;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    border-width: 0 0 35vh 100vw;
-    border-style: solid;
-    border-color: transparent transparent #2c3e50 transparent;
-}
-
 .titulo-patrocinadores,
 .subtitulo-patrocinadores {
     color: #fff;
@@ -225,21 +163,6 @@ header .boton {
     margin-bottom: 64px;
 }
 
-.clientes {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 64px;
-    width: 100%;
-    justify-content: space-between;
-}
-
-.cliente {
-    width: 30%;
-}
-
-.cliente img {
-    width: 100%;
-}
 
 /* Footer */
 
