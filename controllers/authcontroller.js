@@ -108,4 +108,16 @@ exports.salir = (req, res) => {
     res.clearCookie('jwt');
     return res.redirect('/');
 }
+
+// listado de usuarios
+exports.listarUsuarios = (req, res) => {
+    conexion.query('SELECT * FROM usuarios', (error, results) => {
+       if(error){
+          throw error;
+       }else{
+          res.render('listausuarios', {results:results})
+       }
+    })
+ }
+ 
  

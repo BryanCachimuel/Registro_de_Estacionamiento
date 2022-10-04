@@ -19,4 +19,7 @@ router.post('/registro',auth.registro);
 router.post('/login', auth.iniciarSesion);
 router.get('/salir', auth.salir);
 
+// listar usuarios
+router.get('/listausuarios', auth.listarUsuarios);
+
 module.exports = router;
