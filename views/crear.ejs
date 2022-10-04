@@ -48,51 +48,51 @@
     </nav>
 
    <div class="container mt-4">
-    <div class="card border-secondary">
-        <div class="card-header">Nuevo Registro</div>
-        <div class="card-body">
-            <form action="/crear" method="POST">
-                <div class="mb-3">
-                    <label for="cedula" class="form-label">Cédula: </label>
-                    <input type="text" class="form-control" id="cedula" name="cedula" tabindex="1">
+    <div class="row">
+        <div class="col-lg-4 mx-auto">
+            <div class="card border-secondary">
+                <div class="card-header">Nuevo Registro</div>
+                <div class="card-body">
+                    <form action="/crear" method="POST">
+                        <div class="mb-3">
+                            <label for="cedula" class="form-label">Cédula: </label>
+                            <input type="text" class="form-control" id="cedula" name="cedula" tabindex="1">
+                        </div>
+                        <div class="mb-3">
+                            <label for="nombrepropietario" class="form-label">Propietario: </label>
+                            <input type="text" class="form-control" id="nombrepropietario" name="nombrepropietario" tabindex="1">
+                        </div>
+                        <div class="mb-3">
+                            <label for="marcacarro" class="form-label">Marca del Carro: </label>
+                            <select id="marcacarro" name="marcacarro" class="form-select" aria-label="Default select example" tabindex="2">
+                                <option value="Mazda" selected>Mazda</option>
+                                <option value="Ranault">Renault</option>
+                                <option value="Chevrolet">Chevrolet</option>
+                                <option value="Toyota">Toyota</option>
+                                <option value="Honda">Honda</option>
+                                <option value="Hyundai">Hyundai</option>
+                                <option value="Ford">Ford</option>
+                                <option value="Otra">Otra</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="placacarro" class="form-label">Placa del Carro: </label>
+                            <input type="text" class="form-control" id="placacarro" name="placacarro" tabindex="1">
+                        </div>
+                        <div class="mb-3">
+                            <label for="horaingreso" class="form-label">Hora de Ingreso: </label>
+                            <input type="text" class="form-control" id="horaingreso" name="horaingreso" tabindex="1">
+                        </div>
+                        <div class="mb-3">
+                            <label for="horasalida" class="form-label">Hora de Salida: </label>
+                            <input type="text" class="form-control" id="horasalida" name="horasalida" tabindex="1">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" tabindex="5"><i class='bx bx-check-circle'></i> Guardar</button>
+                        <a href="/" class="btn btn-danger"><i class='bx bx-x-circle'></i> Cancelar</a>
+                    </form>
                 </div>
-                <div class="mb-3">
-                    <label for="nombrepropietario" class="form-label">Propietario: </label>
-                    <input type="text" class="form-control" id="nombrepropietario" name="nombrepropietario" tabindex="1">
-                </div>
-                <div class="mb-3">
-                    <label for="marcacarro" class="form-label">Marca del Carro: </label>
-                    <select id="marcacarro" name="marcacarro" class="form-select" aria-label="Default select example" tabindex="2">
-                        <option value="Mazda" selected>Mazda</option>
-                        <option value="Ranault">Renault</option>
-                        <option value="Chevrolet">Chevrolet</option>
-                        <option value="Toyota">Toyota</option>
-                        <option value="Honda">Honda</option>
-                        <option value="Hyundai">Hyundai</option>
-                        <option value="Ford">Ford</option>
-                        <option value="Otra">Otra</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="placacarro" class="form-label">Placa del Carro: </label>
-                    <input type="text" class="form-control" id="placacarro" name="placacarro" tabindex="1">
-                </div>
-                <div class="mb-3">
-                    <label for="horaingreso" class="form-label">Hora de Ingreso: </label>
-                    <input type="text" class="form-control" id="horaingreso" name="horaingreso" tabindex="1">
-                </div>
-                <div class="mb-3">
-                    <label for="horasalida" class="form-label">Hora de Salida: </label>
-                    <input type="text" class="form-control" id="horasalida" name="horasalida" tabindex="1">
-                </div>
-                <!--<div class="mb-3">
-                    <label for="totalpagar" class="form-label">Total a Pagar: </label>
-                    <input type="text" class="form-control" id="totalpagar" name="totalpagar" tabindex="1">
-                </div>-->
-                
-                <button type="submit" class="btn btn-primary" tabindex="5"><i class='bx bx-check-circle'></i> Guardar</button>
-                <a href="/" class="btn btn-danger"><i class='bx bx-x-circle'></i> Cancelar</a>
-            </form>
+            </div>
         </div>
     </div>
    </div>
