@@ -26,7 +26,8 @@ exports.guardar = (req, res) => {
    const placacarro = req.body.placacarro;
    const horaingreso = req.body.horaingreso;
    const horasalida = req.body.horasalida;
-   const totalpagar = req.body.totalpagar;
+   let totalpagar = (horasalida - horaingreso)*0.50;
+  
 
    conexion.query('INSERT INTO registro SET ?',{
                   cedula:cedula, 
@@ -64,7 +65,7 @@ exports.actualizar = (req, res) => {
    const placacarro = req.body.placacarro;
    const horaingreso = req.body.horaingreso;
    const horasalida = req.body.horasalida;
-   const totalpagar = req.body.totalpagar;
+   let totalpagar = (horasalida - horaingreso)*0.50;
 
    conexion.query('UPDATE registro SET ? WHERE id = ?', [{
                   cedula:cedula, 
