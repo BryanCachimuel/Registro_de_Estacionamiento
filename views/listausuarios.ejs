@@ -60,8 +60,6 @@
               <td><%= usuarios.usuario %></td>
               <td><%= usuarios.nombre %></td>
               <td>
-                <a href="/editar/<%= usuarios.id %>" class="btn btn-outline-info"><i class='bx bxs-edit'></i></a>
-                <!--<a href="/eliminar/<%= usuarios.id %>" class="btn btn-outline-danger"><i class='bx bxs-trash'></i></a>-->
                 <a onclick="confirmar(<%= usuarios.id %>)" class="btn btn-outline-danger"><i class='bx bxs-trash'></i></a>
               </td>
             </tr>

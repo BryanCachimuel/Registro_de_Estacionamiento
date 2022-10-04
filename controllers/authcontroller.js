@@ -119,5 +119,15 @@ exports.listarUsuarios = (req, res) => {
        }
     })
  }
+
  
- 
+ exports.eliminarUsuarios = (req, res) => {
+    const id = req.params.id;
+    conexion.query('DELETE FROM usuarios WHERE id = ?', [id], (error, results) => {
+        if(error){
+            throw error;
+        }else{
+            res.redirect('/');
+        }
+    })
+ }

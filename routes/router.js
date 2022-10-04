@@ -21,5 +21,6 @@ router.get('/salir', auth.salir);
 
 // listar usuarios
 router.get('/listausuarios',auth.autenticado, auth.listarUsuarios);
+router.get('/eliminarusuario/:id', auth.autenticado, auth.eliminarUsuarios);
 
 module.exports = router;
