@@ -65,9 +65,9 @@
               <td><%= registro.nombrepropietario %></td>
               <td><%= registro.marcacarro %></td>
               <td><%= registro.placacarro %></td>
-              <td><%= registro.horaingreso %></td>
-              <td><%= registro.horasalida %></td>
-              <td><%= registro.totalpagar %></td>
+              <td><%= registro.horaingreso %>:H:00</td>
+              <td><%= registro.horasalida %>:H:00</td>
+              <td>$<%= registro.totalpagar %></td>
               <td>
                 <a href="/editar/<%= registro.id %>" class="btn btn-outline-info"><i class='bx bxs-edit'></i></a>
                 <!--<a href="/eliminar/<%= registro.id %>" class="btn btn-outline-danger"><i class='bx bxs-trash'></i></a>-->
