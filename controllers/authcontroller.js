@@ -7,8 +7,8 @@ exports.login = (req, res) => {
     res.render('login',{alert:false});
  }
  
- exports.registros = (req, res) => {
-    res.render('registro');
+ exports.registrar = (req, res) => {
+    res.render('registro', {alert:false});
  }
 
  exports.registro = async(req, res) => {

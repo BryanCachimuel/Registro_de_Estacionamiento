@@ -14,7 +14,7 @@ router.post('/actualizar',auth.autenticado, ctrl.actualizar);
 router.get('/eliminar/:id',auth.autenticado, ctrl.eliminar);
 
 router.get('/login', auth.login);
-router.get('/registro', auth.registros);
+router.get('/registro', auth.registrar);
 router.post('/registro',auth.registro);
 router.post('/login', auth.iniciarSesion);
 router.get('/salir', auth.salir);
