@@ -17,12 +17,26 @@ exports.login = (req, res) => {
         const usuario = req.body.usuario;
         const password = req.body.password;
         const passwordHash = await bcryptjs.hash(password, 8);
-        conexion.query('INSERT INTO usuarios SET ?', {nombre:nombre, usuario:usuario, password:passwordHash}, (error, results) => {
-                        if(error){
-                            console.log(error)
-                        }
-                          res.redirect('/login')
-                       })
+        
+        if(!usuario || !nombre || !password){
+            res.render('registro', {
+                alert:true,
+                alertTitle: "Advertencia",
+                alertMessage: "Ingrese un Usuario, Nombre y Password",
+                alertIcon: "info",
+                showConfirmButton: true,
+                timer: false,
+                ruta: 'registro'
+            })
+        }else{
+            conexion.query('INSERT INTO usuarios SET ?', {nombre:nombre, usuario:usuario, password:passwordHash}, (error, results) => {
+                if(error){
+                    console.log(error)
+                }
+                  res.redirect('/login')
+               })
+        }
+
     } catch (error) {
         console.log(error)
     }  
