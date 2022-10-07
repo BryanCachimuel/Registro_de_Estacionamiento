@@ -35,7 +35,7 @@
               </li>
             </ul>
             <form class="d-flex">
-              <a type="button" class="px-3 btn btn-danger" href="salir">Salir</a>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cerrar">Cerrar Sesión</button>
             </form>
           </div>
         </div>
@@ -69,6 +69,21 @@
 
 
       </div>
+
+        <!-- Modal -->
+  <div class="modal fade" id="cerrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-body">
+          ¿Seguro que Desea Salir de la Sessión?
+        </div>
+        <div class="modal-footer">    
+          <a type="button" class="px-3 btn btn-success" href="/salir">Salir</a>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
       <!-- Proceso DataTable -->
       <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

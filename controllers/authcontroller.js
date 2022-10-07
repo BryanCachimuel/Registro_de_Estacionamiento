@@ -120,7 +120,7 @@ exports.autenticado = async(req, res, next) => {
 
 exports.salir = (req, res) => {
     res.clearCookie('jwt');
-    return res.redirect('/');
+    return res.redirect('/inicio');
 }
 
 // listado de usuarios
