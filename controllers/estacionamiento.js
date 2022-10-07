@@ -95,5 +95,11 @@ exports.eliminar = (req, res) => {
 }
 
 exports.creandotarjetas = (req, res) => {
-   res.render('tarjetas');
+   conexion.query('SELECT * FROM registro',(error,results) => {
+      if(error){
+          throw error;
+      }else{
+         res.render('tarjetas', {results:results});
+      }
+  })
 }

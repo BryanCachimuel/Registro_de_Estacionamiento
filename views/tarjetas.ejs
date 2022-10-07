@@ -49,8 +49,24 @@
 
   <div class="container">
   
-
-    
+   <div class="row">
+   
+        <% results.forEach((registro)=> { %>
+            <div class="col-4">
+            <div class="card mt-5">
+                <div class="card-header">
+                    <%= registro.nombrepropietario %>
+                </div>
+                <div class="card-body">
+                  <p class="card-text"><%= registro.placacarro %></p>
+                  <p class="card-text"><%= registro.marcacarro %></p>
+                </div>
+              </div>
+            </div>
+        <% }) %> 
+           
+  
+   </div>
 
   </div>
 
