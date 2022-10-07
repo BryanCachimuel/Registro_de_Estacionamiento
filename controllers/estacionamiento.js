@@ -93,3 +93,7 @@ exports.eliminar = (req, res) => {
       }
    })
 }
+
+exports.creandotarjetas = (req, res) => {
+   res.render('tarjetas');
+}

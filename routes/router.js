@@ -12,6 +12,7 @@ router.post('/crear',auth.autenticado, ctrl.guardar);
 router.get('/editar/:id',auth.autenticado, ctrl.editar);
 router.post('/actualizar',auth.autenticado, ctrl.actualizar);
 router.get('/eliminar/:id',auth.autenticado, ctrl.eliminar);
+router.get('/tarjetas_estacionamiento', auth.autenticado, ctrl.creandotarjetas);
 
 router.get('/login', auth.login);
 router.get('/registro', auth.registrar);
@@ -22,5 +23,6 @@ router.get('/salir', auth.salir);
 // listar usuarios
 router.get('/listausuarios',auth.autenticado, auth.listarUsuarios);
 router.get('/eliminarusuario/:id', auth.autenticado, auth.eliminarUsuarios);
+
 
 module.exports = router;
