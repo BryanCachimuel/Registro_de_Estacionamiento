@@ -1,3 +1,4 @@
+const moment = require('moment')
 const conexion = require('../database/db')
 
 exports.inicio = (req, res) => {
@@ -24,6 +25,7 @@ exports.guardar = (req, res) => {
    const nombrepropietario = req.body.nombrepropietario;
    const marcacarro = req.body.marcacarro;
    const placacarro = req.body.placacarro;
+   const fecha = moment().format("YYYY/MM/DD");
    const horaingreso = req.body.horaingreso;
    const horasalida = req.body.horasalida;
    let totalpagar = (horasalida - horaingreso)*1.75;
@@ -33,6 +35,7 @@ exports.guardar = (req, res) => {
                   nombrepropietario:nombrepropietario, 
                   marcacarro:marcacarro, 
                   placacarro:placacarro, 
+                  fecha:fecha,
                   horaingreso:horaingreso, 
                   horasalida:horasalida, 
                   totalpagar:totalpagar}, 
