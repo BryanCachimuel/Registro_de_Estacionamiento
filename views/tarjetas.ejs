@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
   <!-- iconos -->
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
@@ -55,11 +56,12 @@
             <div class="col-4">
             <div class="card mt-5">
                 <div class="card-header bg-info">
-                    <%= registro.nombrepropietario %>
+                    <div class="izquierda">Nombre: <%= registro.nombrepropietario %></div>
+                    <div class="derecha">Código: <%= registro.codigoregistro %></div>
                 </div>
                 <div class="card-body bg-secondary">
-                  <p class="card-text"><%= registro.placacarro %></p>
-                  <p class="card-text"><%= registro.marcacarro %></p>
+                  <p class="card-text">Placa: <%= registro.placacarro %></p>
+                  <p class="card-text">Marca: <%= registro.marcacarro %></p>
                 </div>
               </div>
             </div>
