@@ -3,10 +3,12 @@ use registro_estacionamiento
 
 create table registro(
 	id int not null auto_increment,
+    codigoregistro varchar(7) not null,
     cedula varchar(10) not null,
     nombrepropietario varchar(100) not null,
     marcacarro varchar(50) not null,
 	placacarro varchar(8) not null,
+    fecha date not null,
     horaingreso int not null,
     horasalida int not null,
     totalpagar decimal(5,2) not null,

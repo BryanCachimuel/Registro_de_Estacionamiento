@@ -53,6 +53,7 @@
     <table id="registros" class="table table-bordered table-striped text-center mt-4">
       <thead>
         <tr class="bg-primary text-white">
+          <th scope="col">Cod. Registro</th>
           <th scope="col">Cédula</th>
           <th scope="col">Propietario</th>
           <th scope="col">Marca del Carro</th>
@@ -68,6 +69,9 @@
       <tbody>
         <% results.forEach((registro)=> { %>
           <tr>
+            <td>
+              <%= registro.codigoregistro %>
+            </td>
             <td>
               <%= registro.cedula%>
             </td>

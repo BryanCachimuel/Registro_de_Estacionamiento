@@ -29,8 +29,12 @@ exports.guardar = (req, res) => {
    const horaingreso = req.body.horaingreso;
    const horasalida = req.body.horasalida;
    let totalpagar = (horasalida - horaingreso)*1.75;
+   let letrasplaca = placacarro.slice(1,3);
+   let numerosregistro = parseInt(Math.random()*99999);
+   const codigoregistro = letrasplaca+numerosregistro;
   
    conexion.query('INSERT INTO registro SET ?',{
+                  codigoregistro:codigoregistro,
                   cedula:cedula, 
                   nombrepropietario:nombrepropietario, 
                   marcacarro:marcacarro, 
