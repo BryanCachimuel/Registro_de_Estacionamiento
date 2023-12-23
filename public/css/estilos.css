@@ -236,17 +236,26 @@ textarea {
     margin-bottom: 16px;
 }
 
-input[type="submit"] {
+.btn-enviar{
     display: inline-block;
-    padding: 13px;
+    padding: 14px;
     border: none;
     color: #fff;
     background: rgba(37, 37, 33, .7);
     width: 96px;
+    cursor: pointer;
+}
+
+.btn-enviar:hover{
+    display: inline-block;
+    padding: 14px;
+    border: none;
+    color: #000000;
+    background: #ffffff;
+    width: 96px;
 }
 
 /* Responsive */
-
 @media screen and (max-width:900px) {
     .card {
         width: 48%;
