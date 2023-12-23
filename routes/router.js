@@ -3,8 +3,10 @@ const router = express.Router();
 
 const ctrl = require('../controllers/estacionamiento');
 const auth = require('../controllers/authcontroller');
+const contactar = require('../controllers/contactanos');
 
 router.get('/inicio', ctrl.inicio);
+router.post('/contactanos', contactar.guardar);
 
 router.get('/',auth.autenticado, ctrl.listado);
 router.get('/crear',auth.autenticado, ctrl.crear);
