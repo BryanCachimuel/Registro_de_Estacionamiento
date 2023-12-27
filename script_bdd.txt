@@ -1,28 +1,119 @@
-CREATE DATABASE registro_estacionamiento;
-use registro_estacionamiento
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 27-12-2023 a las 03:20:23
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.0.19
 
-create table registro(
-	id int not null auto_increment,
-    codigoregistro varchar(7) not null,
-    cedula varchar(10) not null,
-    nombrepropietario varchar(100) not null,
-    marcacarro varchar(50) not null,
-	placacarro varchar(8) not null,
-    fecha date not null,
-    horaingreso int not null,
-    horasalida int not null,
-    totalpagar decimal(5,2) not null,
-    primary key(id)
-);
-
-create table usuarios(
-	id int not null auto_increment,
-    usuario varchar(50) not null,
-    nombre varchar(100) not null,
-    password varchar(75) not null,
-    primary key(id)
-);
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
 
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `registro_estacionamiento`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `contactanos`
+--
+
+CREATE TABLE `contactanos` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `telefono` varchar(10) NOT NULL,
+  `encabezado` varchar(100) NOT NULL,
+  `observaciones` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+--
+-- Estructura de tabla para la tabla `registro`
+--
+
+CREATE TABLE `registro` (
+  `id` int(11) NOT NULL,
+  `codigoregistro` varchar(7) NOT NULL,
+  `cedula` varchar(10) NOT NULL,
+  `nombrepropietario` varchar(100) NOT NULL,
+  `marcacarro` varchar(50) NOT NULL,
+  `placacarro` varchar(8) NOT NULL,
+  `fecha` date NOT NULL,
+  `horaingreso` int(11) NOT NULL,
+  `horasalida` int(11) NOT NULL,
+  `totalpagar` decimal(5,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `usuario` varchar(50) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `password` varchar(75) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `contactanos`
+--
+ALTER TABLE `contactanos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `registro`
+--
+ALTER TABLE `registro`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `contactanos`
+--
+ALTER TABLE `contactanos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `registro`
+--
+ALTER TABLE `registro`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
 
