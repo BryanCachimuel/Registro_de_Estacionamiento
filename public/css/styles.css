@@ -5,3 +5,13 @@
 .derecha{
 float: right;
 }
+
+#nuevo{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#editar_registro{
+    font-size: 22px;
+    font-weight: bold; 
+}
