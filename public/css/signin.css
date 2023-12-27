@@ -51,6 +51,16 @@ body {
   border-top-right-radius: 0;
 }
 
+#inicio{
+  font-size: 22px;
+  font-weight: bold;
+}
+
+#registrarse{
+  font-size: 22px;
+  font-weight: bold;
+}
+
 .enlace{
   margin-top: 10px;
   margin-bottom: 10px;
