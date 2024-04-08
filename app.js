@@ -32,7 +32,7 @@ app.use(function(req, res, next){
     next();    
 });
 
-const puerto = 3000;
+const puerto = process.env.PUERTO;
 app.listen(puerto, () =>{
     console.log(`Servidor ejecutandose en http://localhost:${puerto}`)
 })
