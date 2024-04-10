@@ -25,6 +25,7 @@ router.get('/salir', auth.salir);
 // listar usuarios
 router.get('/listausuarios', auth.autenticado, auth.listarUsuarios);
 router.get('/editar_usuario/:id', auth.autenticado, auth.editarUsuarios);
+router.post('/actualizar_usuario', auth.autenticado, auth.actualizarUsuarios);
 router.get('/eliminarusuario/:id', auth.autenticado, auth.eliminarUsuarios);
 
 
