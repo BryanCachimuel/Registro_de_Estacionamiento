@@ -23,7 +23,8 @@ router.post('/login', auth.iniciarSesion);
 router.get('/salir', auth.salir);
 
 // listar usuarios
-router.get('/listausuarios',auth.autenticado, auth.listarUsuarios);
+router.get('/listausuarios', auth.autenticado, auth.listarUsuarios);
+router.get('/editar_usuario/:id', auth.autenticado, auth.editarUsuarios);
 router.get('/eliminarusuario/:id', auth.autenticado, auth.eliminarUsuarios);
 
 
