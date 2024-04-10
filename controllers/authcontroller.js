@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const bcryptjs = require('bcryptjs');
 const conexion = require('../database/db');
 const { promisify } = require('util');
+const { error } = require('console');
 
 exports.login = (req, res) => {
     res.render('login',{alert:false});
@@ -129,11 +130,26 @@ exports.listarUsuarios = (req, res) => {
        if(error){
           throw error;
        }else{
-          res.render('listausuarios', {results:results})
+          res.render('usuarios/listausuarios', {results:results})
        }
     })
  }
 
+// editar los usuarios 
+exports.editarUsuarios = (req, res) => {
+    try {
+        const id = req.params.id;
+        conexion.query('SELECT * FROM usuarios WHERE id=?',[id], (error, results) => {
+            if(error){
+                throw error;
+            }else{
+                res.render('usuarios/editarUsuarios',{usuarios:results[0]});
+            }
+        });
+    } catch (error) {
+        console.log(error)
+    }
+}
  
  exports.eliminarUsuarios = (req, res) => {
     const id = req.params.id;
