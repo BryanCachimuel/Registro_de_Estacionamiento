@@ -2,7 +2,6 @@ const jwt = require('jsonwebtoken');
 const bcryptjs = require('bcryptjs');
 const conexion = require('../database/db');
 const { promisify } = require('util');
-const { error } = require('console');
 
 exports.login = (req, res) => {
     res.render('login',{alert:false});
@@ -102,37 +101,49 @@ exports.iniciarSesion = async(req, res) => {
 }
 
 exports.autenticado = async(req, res, next) => {
-    if(req.cookies.jwt){
-        try {
-            const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
-            conexion.query('SELECT * FROM usuarios WHERE id = ?', [decodificada.id],(error, results) => {
-                if(!results){return next()}
-                req.usuario = results[0]
+    try {
+        if(req.cookies.jwt){
+            try {
+                const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
+                conexion.query('SELECT * FROM usuarios WHERE id = ?', [decodificada.id],(error, results) => {
+                    if(!results){return next()}
+                    req.usuario = results[0]
+                    return next();
+                })
+            } catch (error) {
+                console.log(error);
                 return next();
-            })
-        } catch (error) {
-            console.log(error);
-            return next();
+            }
+        }else{
+            res.redirect('/inicio');
         }
-    }else{
-        res.redirect('/inicio');
+    } catch (error) {
+        console.log(error);
     }
 }
 
 exports.salir = (req, res) => {
-    res.clearCookie('jwt');
-    return res.redirect('/inicio');
+    try {
+        res.clearCookie('jwt');
+        return res.redirect('/inicio');
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 // listado de usuarios
 exports.listarUsuarios = (req, res) => {
-    conexion.query('SELECT * FROM usuarios', (error, results) => {
-       if(error){
-          throw error;
-       }else{
-          res.render('usuarios/listausuarios', {results:results})
-       }
-    })
+    try {
+        conexion.query('SELECT * FROM usuarios', (error, results) => {
+            if(error){
+               throw error;
+            }else{
+               res.render('usuarios/listausuarios', {results:results})
+            }
+         })
+    } catch (error) {
+        console.log(error);
+    }
  }
 
 // editar los usuarios 
@@ -150,14 +161,39 @@ exports.editarUsuarios = (req, res) => {
         console.log(error)
     }
 }
+
+exports.actualizarUsuarios = (req, res) => {
+    try {
+        const id = req.body.id;
+        const usuario = req.body.usuario;
+        const nombre = req.body.nombre;
+
+        conexion.query('UPDATE usuarios SET ? WHERE id = ?' ,[{
+            usuario:usuario,
+            nombre:nombre
+        }, id], (error, results) => {
+            if(error){
+                throw error;
+            }else{
+                res.redirect('/listausuarios')
+            }
+        });
+    } catch (error) {
+        console.log(error)
+    }
+}
  
  exports.eliminarUsuarios = (req, res) => {
-    const id = req.params.id;
-    conexion.query('DELETE FROM usuarios WHERE id = ?', [id], (error, results) => {
+    try {
+        const id = req.params.id;
+        conexion.query('DELETE FROM usuarios WHERE id = ?', [id], (error, results) => {
         if(error){
             throw error;
         }else{
             res.redirect('/listausuarios');
         }
     })
+    } catch (error) {
+        console.log(error);
+    }
  }
